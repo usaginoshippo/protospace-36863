@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :position, presence: true
 
 
-  has_many :prototypes
-  has_many :comments
+  has_many :prototypes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 end

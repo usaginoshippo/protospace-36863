@@ -42,4 +42,9 @@ class PrototypesController < ApplicationController
   def prototype_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
   end
+
+  def show
+    @comment=Comment.new
+    @comments=@prototype.comments.include(:user)
+  end
 end
